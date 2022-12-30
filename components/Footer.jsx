@@ -1,18 +1,8 @@
-import React from 'react'
-
 const Footer = () => {
     return (
         <footer>
-            <div className='container flex justify-between items-center mx-auto'>
-                <div>
-                    Brand
-                </div>
-                <div>
-                    Copyright
-                </div>
-                <div>
-                    Socials
-                </div>
+            <div className='container flex justify-center items-center mx-auto opacity-50 text-sm'>
+                &copy; Copyright {new Date().getFullYear()} Placeholder. All Rights Reserved.
             </div>
         </footer>
     )
