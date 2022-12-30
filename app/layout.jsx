@@ -5,7 +5,7 @@ import 'tailwindcss/tailwind.css'
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en" className="bg-gray-900 text-gray-100 antialiased">
+        <html lang="en" className="bg-darkest text-lightest antialiased">
             {/*
                 <head /> will contain the components returned by the nearest parent
                 head.jsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
             <head />
             <body>
                 <Navbar />
-                <div className='p-4'>
+                <div className='max-w-7xl mx-auto'>
                     {children}
                 </div>
                 <Footer />
