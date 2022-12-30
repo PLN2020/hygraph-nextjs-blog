@@ -1,25 +1,35 @@
-async function getPosts() {
-    const res = await fetch("http://localhost:3000/api/posts");
-    
-    if (!res.ok) {
-        throw new Error('Failed to fetch data');
-    }
+import { GraphQLClient, gql } from "graphql-request";
+import Link from "next/link";
 
-    return res.json();
-}
+const hygraph = new GraphQLClient(
+    process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT
+);
+
+const QUERY = gql`
+  {
+    posts {
+      id
+      title
+      slug
+    }
+  }
+`
 
 export default async function Page() {
-    // let data = use(getPosts());
-    const data = await getPosts();
-    console.log(data.posts.posts[0].title)
+    const { posts } = await hygraph.request(QUERY)
 
     return (
         <div>
-            <header>Blog posts</header>
+            <h1>Blog Posts</h1>
+
             <ul>
-                {data.posts.posts.map((post) => (
-                    <li key={post.id}>
-                        {post.title}
+                {posts.map(({ id, title, slug }) => (
+                    <li key={id}>
+                        <Link
+                            href={`/blog/${slug}`}
+                        >
+                            {title}
+                        </Link>
                     </li>
                 ))}
             </ul>

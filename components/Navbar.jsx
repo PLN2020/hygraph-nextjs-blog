@@ -6,10 +6,10 @@ const Navbar = () => {
         <header className='border-b p-4'>
             <nav className='space-x-4'>
                 <NavLink href="/">Home</NavLink>
-                <NavLink href="/about-me">About Me</NavLink>
-                <NavLink href="/food-photography">Food Photography</NavLink>
-                <NavLink href="/contact">Contact</NavLink>
+                <NavLink href="/about-me">About</NavLink>
+                <NavLink href="/portfolio">Portfolio</NavLink>
                 <NavLink href="/blog">Blog</NavLink>
+                <NavLink href="/contact">Contact</NavLink>
             </nav>
         </header>
     )
