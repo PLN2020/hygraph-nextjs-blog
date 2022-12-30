@@ -1,14 +1,5 @@
 import { getPostBySlug, getPosts } from "../../../lib";
 
-export const revalidate = 60;
-
-export async function generateStaticParams() {
-    const { posts } = await getPosts();
-
-    return posts.map((post) => ({
-        slug: post.slug,
-    }));
-}
 
 export default async function Page({ params: { slug } }) {
 
@@ -20,4 +11,14 @@ export default async function Page({ params: { slug } }) {
             <p>{post.excerpt}</p>
         </div>
     )
+}
+
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+    const { posts } = await getPosts();
+
+    return posts.map((post) => ({
+        slug: post.slug,
+    }));
 }
