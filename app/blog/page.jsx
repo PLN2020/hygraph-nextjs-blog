@@ -1,22 +1,8 @@
-import { GraphQLClient, gql } from "graphql-request";
 import Link from "next/link";
-
-const hygraph = new GraphQLClient(
-    process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT
-);
-
-const QUERY = gql`
-  {
-    posts {
-      id
-      title
-      slug
-    }
-  }
-`
+import { getPosts } from "../../lib";
 
 export default async function Page() {
-    const { posts } = await hygraph.request(QUERY)
+    const { posts } = await getPosts();
 
     return (
         <div>
