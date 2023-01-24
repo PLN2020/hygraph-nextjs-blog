@@ -1,20 +1,21 @@
 import Link from "next/link";
-import { getPosts } from "../../lib";
+import { getPostsConnection } from "../../lib/hygraph.client";
 
 export default async function Page() {
-    const { posts } = await getPosts();
+    const data = await getPostsConnection();
+    const posts = data.edges
 
     return (
         <div>
             <h1>Blog Posts</h1>
 
             <ul>
-                {posts.map(({ id, title, slug }) => (
-                    <li key={id}>
+                {posts.map((post) => (
+                    <li key={post.node.id}>
                         <Link
-                            href={`/blog/${slug}`}
+                            href={`/blog/${post.node.slug}`}
                         >
-                            {title}
+                            {post.node.title}
                         </Link>
                     </li>
                 ))}
@@ -23,4 +24,4 @@ export default async function Page() {
     )
 }
 
-export const revalidate = 60;
+export const revalidate = 15;
