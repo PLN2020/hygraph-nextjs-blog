@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getPostsConnection } from "../../lib/hygraph.client";
 
 export default async function Page() {
-    const data = await getPostsConnection();
+    const data = await getPostsConnection(3);
     const posts = data.edges
 
     return (
