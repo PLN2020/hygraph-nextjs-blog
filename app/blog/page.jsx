@@ -1,25 +1,14 @@
-import Link from "next/link";
+import BlogPostList from "../../components/BlogPostList";
 import { getPostsConnection } from "../../lib/hygraph.client";
 
 export default async function Page() {
-    const data = await getPostsConnection(3);
+    const data = await getPostsConnection(10);
     const posts = data.edges
 
     return (
         <div>
-            <h1>Blog Posts</h1>
-
-            <ul>
-                {posts.map((post) => (
-                    <li key={post.node.id}>
-                        <Link
-                            href={`/blog/${post.node.slug}`}
-                        >
-                            {post.node.title}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
+            <h1 className="mb-4">Blog Posts</h1>
+            <BlogPostList posts={posts} />
         </div>
     )
 }
