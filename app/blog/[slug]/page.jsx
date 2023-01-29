@@ -15,7 +15,7 @@ export default async function Page({ params: { slug } }) {
 export const revalidate = 15;
 
 export async function generateStaticParams() {
-    const { posts } = await getPosts();
+    const posts = await getPosts();
 
     return posts.map((post) => ({
         slug: post.slug,

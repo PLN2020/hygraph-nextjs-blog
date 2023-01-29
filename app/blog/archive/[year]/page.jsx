@@ -1,14 +1,7 @@
-import { getPostsByYear } from "../../../../lib/hygraph.client";
-
-export default async function Page({ params: { year } }) {
-
-    const posts = await getPostsByYear(year)
-
+export default async function Page() {
     return (
         <div>
-            {posts}
+            Posts from Year
         </div>
     )
 }
-
-export const revalidate = 15;

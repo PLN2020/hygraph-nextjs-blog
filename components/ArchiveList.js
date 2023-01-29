@@ -1,5 +1,8 @@
+"use client"
+
+import { Menu } from '@headlessui/react';
+import Link from 'next/link';
 import React from 'react'
-import DropdownMenu from './DropdownMenu';
 
 const ArchiveList = () => {
     let minYear = 2019;
@@ -12,7 +15,21 @@ const ArchiveList = () => {
     }
 
     return (
-        <DropdownMenu />
+        <Menu>
+            <Menu.Button>More</Menu.Button>
+            <Menu.Items>
+                <Menu.Item>
+                    {({ active }) => (
+                        <Link
+                            className={`${active && 'bg-blue-500'}`}
+                            href="/archive/2022"
+                        >
+                            2022
+                        </Link>
+                    )}
+                </Menu.Item>
+            </Menu.Items>
+        </Menu>
     )
 }
 
