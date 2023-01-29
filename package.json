@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.8",
     "@heroicons/react": "^2.0.13",
     "eslint": "8.28.0",
     "eslint-config-next": "13.0.4",
@@ -16,7 +17,7 @@
     "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",
     "html-react-parser": "^3.0.4",
-    "jotai": "^1.13.0",
+    "jotai": "^1.13.1",
     "json5": "^2.2.2",
     "moment": "^2.29.4",
     "next": "13.0.4",
