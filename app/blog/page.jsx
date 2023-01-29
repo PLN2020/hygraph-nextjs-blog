@@ -1,12 +1,13 @@
 import Link from "next/link";
 import ArchiveList from "../../components/ArchiveList";
 import BlogPostList from "../../components/BlogPostList";
-import { getCategories, getPostsConnection } from "../../lib/hygraph.client";
+import { getCategories, getPosts, getPostsConnection } from "../../lib/hygraph.client";
 
 export default async function Page() {
     const data = await getPostsConnection();
-    const posts = data.edges
+    // const posts = data.edges
     // console.log(posts);
+    const posts = await getPosts();
 
     const categories = await getCategories();
 

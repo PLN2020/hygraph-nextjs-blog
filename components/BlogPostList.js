@@ -26,18 +26,18 @@ export default function BlogPostList({ posts }) {
         <>
             <ul>
                 {posts.slice(currentSliceStart, currentSliceEnd).map((post) => (
-                    <li key={post.node.id}>
+                    <li key={post.id}>
                         <Link
-                            href={`/blog/${post.node.slug}`}
+                            href={`/blog/${post.slug}`}
                         >
-                            {post.node.title}
+                            {post.title}
                         </Link>
                     </li>
                 ))}
             </ul>
             
             {currentSliceStart >= 2 && <button onClick={previousPage}>Previous</button>}
-            {currentSliceEnd < 3 && <button onClick={nextPage}>Next</button>}
+            {currentSliceEnd < posts.length && <button onClick={nextPage}>Next</button>}
         </>
     )
 }

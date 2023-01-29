@@ -1,10 +1,10 @@
-import Link from "next/link";
+import BlogPostList from "../../../../components/BlogPostList";
 import { getCategories, getPostsByCategory } from "../../../../lib/hygraph.client";
 
 export default async function Page({ params: { slug } }) {
 
     const categoryPosts = await getPostsByCategory(slug);
-    console.log(categoryPosts);
+    console.log(categoryPosts.length);
     
     const slugWords = slug.split("-");
     const categoryName = slugWords.map((word) => {
@@ -15,13 +15,7 @@ export default async function Page({ params: { slug } }) {
     return (
         <div>
             <h1 className="mb-4">Posts from {categoryName}</h1>
-            {categoryPosts.map((post) => (
-                <div key={post.id}>
-                    <Link href={`/blog/${post.slug}`}>
-                        {post.title}
-                    </Link>
-                </div>
-            ))}
+            <BlogPostList posts={categoryPosts} />
         </div>
     )
 }
