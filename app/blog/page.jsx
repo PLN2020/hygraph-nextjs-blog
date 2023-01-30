@@ -1,22 +1,22 @@
 import Link from "next/link";
 import ArchiveList from "../../components/ArchiveList";
 import BlogPostList from "../../components/BlogPostList";
-import { getCategories, getPosts, getPostsConnection } from "../../lib/hygraph.client";
+import { getCategories, getPosts, getPostsConnection, getYears } from "../../lib/hygraph.client";
 
 export default async function Page() {
     const data = await getPostsConnection();
     // const posts = data.edges
     // console.log(posts);
     const posts = await getPosts();
-
     const categories = await getCategories();
+    const years = await getYears();
 
     return (
         <div>
             <h1 className="mb-4">Blog Posts</h1>
             <BlogPostList posts={posts} />
             <div>
-                <ArchiveList />
+                <ArchiveList years={years} />
             </div>
             <div>
                 <h1 className="text-xl mt-4">Categories</h1>

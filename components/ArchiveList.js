@@ -4,33 +4,26 @@ import { Menu } from '@headlessui/react';
 import Link from 'next/link';
 import React from 'react'
 
-const ArchiveList = () => {
-    let minYear = 2019;
-    let years = [2019];
-
-    const currentYear = new Date().getFullYear();
-    while (currentYear > minYear) {
-        minYear++;
-        years.push(minYear);
-    }
+export default function ArchiveList({ years }) {
 
     return (
         <Menu>
-            <Menu.Button>More</Menu.Button>
+            <Menu.Button>Select Year</Menu.Button>
+
             <Menu.Items>
-                <Menu.Item>
-                    {({ active }) => (
-                        <Link
-                            className={`${active && 'bg-blue-500'}`}
-                            href="/archive/2022"
-                        >
-                            2022
-                        </Link>
-                    )}
-                </Menu.Item>
+                {years.map((year) => (
+                    <Menu.Item key={year.id}>
+                        {({ active }) => (
+                            <Link
+                                className={`${active && 'bg-blue-500'}`}
+                                href={`/blog/archive/${year.slug}`}
+                            >
+                                {year.slug}
+                            </Link>
+                        )}
+                    </Menu.Item>
+                ))}
             </Menu.Items>
         </Menu>
     )
 }
-
-export default ArchiveList
