@@ -4,7 +4,7 @@ import { getCategories, getPostsByCategory } from "../../../../lib/hygraph.clien
 export default async function Page({ params: { slug } }) {
 
     const categoryPosts = await getPostsByCategory(slug);
-    console.log(categoryPosts.length);
+    // console.log(categoryPosts.length);
     
     const slugWords = slug.split("-");
     const categoryName = slugWords.map((word) => {
