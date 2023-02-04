@@ -1,3 +1,4 @@
+import BlogPost from "../../../components/BlogPost";
 import { getPostBySlug, getPosts } from "../../../lib/hygraph.client";
 
 export default async function Page({ params: { slug } }) {
@@ -8,6 +9,7 @@ export default async function Page({ params: { slug } }) {
         <div>
             <h1>{post.title}</h1>
             <p>{post.excerpt}</p>
+            <BlogPost content={post.content.raw} />
         </div>
     )
 }
