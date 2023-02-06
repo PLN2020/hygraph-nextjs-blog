@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme")
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
@@ -16,6 +18,11 @@ module.exports = {
                 positive: '#43d675',
                 caution: '#fbd024',
                 critical: '#f03e2f',
+            },
+            fontFamily: {
+                sans: ['var(--font-open-sans)', ...defaultTheme.fontFamily.sans],
+                serif: ['var(--font-playfair-display)', ...defaultTheme.fontFamily.serif],
+                mono: ['var(--font-roboto-mono)', ...defaultTheme.fontFamily.mono]
             }
         },
     },

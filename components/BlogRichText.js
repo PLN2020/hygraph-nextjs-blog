@@ -2,18 +2,18 @@ import { RichText } from '@graphcms/rich-text-react-renderer';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function BlogPost({ content }) {
+export default function BlogRichText({ content }) {
     return (
         <div>
             <RichText 
                 content={content}
                 renderers={{
-                    h1: ({ children }) => <h1 className="text-6xl my-4">{children}</h1>,
-                    h2: ({ children }) => <h2 className="text-5xl my-4">{children}</h2>,
-                    h3: ({ children }) => <h3 className="text-4xl my-4">{children}</h3>,
-                    h4: ({ children }) => <h4 className="text-3xl my-4">{children}</h4>,
-                    h5: ({ children }) => <h5 className="text-2xl my-4">{children}</h5>,
-                    h6: ({ children }) => <h6 className="text-xl my-4">{children}</h6>,
+                    h1: ({ children }) => <h1 className="text-6xl my-4 font-serif">{children}</h1>,
+                    h2: ({ children }) => <h2 className="text-5xl my-4 font-serif">{children}</h2>,
+                    h3: ({ children }) => <h3 className="text-4xl my-4 font-serif">{children}</h3>,
+                    h4: ({ children }) => <h4 className="text-3xl my-4 font-serif">{children}</h4>,
+                    h5: ({ children }) => <h5 className="text-2xl my-4 font-serif">{children}</h5>,
+                    h6: ({ children }) => <h6 className="text-xl my-4 font-serif">{children}</h6>,
                     bold: ({ children }) => <strong>{children}</strong>,
                     a: ({ children, href }) => (
                         <Link 
@@ -43,7 +43,7 @@ export default function BlogPost({ content }) {
                     ),
                     ul: ({ children }) => <ul className="list-disc my-2">{children}</ul>,
                     ol: ({ children }) => <ol className="list-decimal my-2">{children}</ol>,
-                    table: ({ children }) => <table className="table-auto w-full m-4">{children}</table>,
+                    table: ({ children }) => <table className="table-auto w-full my-4">{children}</table>,
                     table_head: ({ children }) => <thead>{children}</thead>,
                     table_header_cell: ({ children }) => <th className="p-4 text-left border-b-2">{children}</th>,
                     table_body: ({ children }) => <tbody>{children}</tbody>,
