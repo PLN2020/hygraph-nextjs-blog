@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <nav className="sticky flex justify-between items-center top-0 h-[10vh] bg-lightest px-10 z-10 text-darkest">
             <div>
-                <NavLink href='/'>Home</NavLink>
+                <NavLink href='/'>Website Title</NavLink>
             </div>
             
             <div className="flex justify-center items-center">

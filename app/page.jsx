@@ -1,10 +1,9 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-
 export default function Home() {
     return (
-        <div>
-            Home    
+        <div className="h-screen flex items-center justify-center">
+            <div className="font-bold text-2xl m-auto">
+                Homepage
+            </div>    
         </div>
     )
 }

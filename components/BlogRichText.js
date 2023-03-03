@@ -38,7 +38,7 @@ export default function BlogRichText({ content }) {
                             width={width}
                             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                             placeholder="blur"
-                            className="my-6 max-h-[600px] object-contain"
+                            className="my-6 max-w-3xl mx-auto object-contain"
                         />
                     ),
                     ul: ({ children }) => <ul className="list-disc my-2">{children}</ul>,
